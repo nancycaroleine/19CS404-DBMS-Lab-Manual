@@ -354,7 +354,7 @@ where GRADE !=3;
 Sample table: Customer
  
 |CUST_CODE  | CUST_NAME   | CUST_CITY   | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO     | AGENT_CODE |
-+-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+
 | C00013    | Holmes      | London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
 
 | C00001    | Micheal     | New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
@@ -369,10 +369,11 @@ select changes();
 	
 
 CUST_CODE   CUST_NAME   CUST_CITY   WORKING_AREA  CUST_COUNTRY  GRADE       OPENING_AMT  RECEIVE_AMT  PAYMENT_AMT  OUTSTANDING_AMT  PHONE_NO    AGENT_CODE
-----------  ----------  ----------  ------------  ------------  ----------  -----------  -----------  -----------  ---------------  ----------  ----------
+
 C00013      Holmes      London      London        UK            2           6000         5000         7000         4000             BBBBBBB     A003
 
-C00020      Albert      New York    New York      USA           3           5000         7000         6000         6000             BBBBSBB    
+C00020      Albert      New York    New York      USA           3           5000         7000         6000         6000             BBBBSBB  
+
 C00015      Stuart      London      London        UK            1           6000         8000         3000         11000            GFSGERS     A003
 
 C00012      Steven      San Jose    San Jose      USA           1           5000         7000         9000         3000             KRFYGJK     A012
@@ -380,8 +381,9 @@ C00012      Steven      San Jose    San Jose      USA           1           5000
 C00003      Martin      Torento     Torento       Canada        2           8000         7000         7000         8000             MJYURFD     A004
 
 C00009      Ramesh      Mumbai      Mumbai        India         3           8000         7000         3000         12000            Phone No    A002
+
 changes()
-----------
+
 6
 
 
@@ -415,6 +417,7 @@ where doctor_id = 1;
 
 **MODULE 2 - SEB GRAGE SCREENSHOT]**
 
+![Screenshot 2025-05-05 141549](https://github.com/user-attachments/assets/c754bf48-b600-440e-949b-de39e3dbb417)
 
 
 ## RESULT
