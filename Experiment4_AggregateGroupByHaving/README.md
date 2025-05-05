@@ -38,123 +38,319 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Write the SQL query that accomplishes the grouping of data by addresses, calculates the sum of salaries for each address, and excludes addresses where the total salary sum is not greater than 2000.
+
+Sample table: customer1
+![unnamed](https://github.com/user-attachments/assets/77e34818-4a82-4ece-957a-ab51413da1c2)
+
+
+For example:
+Result
+
+address     SUM(salary)
+
+Bhopal      8500
+Hyderabad   4500
+Indore      10000
+Mumbai      6500
+
 
 ```sql
--- Paste your SQL code below for Question 1
+--select address,SUM(salary) from customer1
+group by address
+having sum(salary)>2000;
+
 ```
 
 **Output:**
+![Screenshot (229)](https://github.com/user-attachments/assets/36fc065e-d76f-436c-9411-02d17249771e)
 
-![Output1](output.png)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- How many prescriptions were written by each doctor?
+
+Sample tablePrescriptions Table
+
+For example:
+![image (8)](https://github.com/user-attachments/assets/093b6770-1033-4afd-b7df-15fe67013871)
+
+Result
+
+DoctorID     TotalPrescriptions
+
+1            1
+2            1
+3            1
+4            1
+5            1
+6            1
+7            1
+8            1
+9            1
+10           1
+
 
 ```sql
--- Paste your SQL code below for Question 2
+--
+select DoctorID,count(PrescriptionID) as TotalPrescriptions
+from Prescriptions
+group by DoctorID;
 ```
 
 **Output:**
+![Screenshot (221)](https://github.com/user-attachments/assets/0ea4e2a6-8c48-47a3-90d4-701eb3041732)
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- How many doctors specialize in each medical specialty?
+
+Sample table:Doctors Table
+
+For example:
+![image (4)](https://github.com/user-attachments/assets/4c189041-4818-40c8-bfd7-ad35e6698ac2)
+
+Result
+
+Specialty          TotalDocto
+
+Gastroenterology   1
+
+Neurology          1
+
+Obstetrics         3
+
+Ophthalmology      1
+
+Orthopedics        1
+
+Pediatrics         2
+
+Urology            1
+
 
 ```sql
--- Paste your SQL code below for Question 3
+--
+select Specialty,count(DoctorID) as TotalDocto from Doctors
+group by Specialty;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Screenshot (222)](https://github.com/user-attachments/assets/68b38c85-3bd4-4e09-9974-029cfaa5413f)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Write a SQL query to return the total number of rows in the 'customer' table where the city is not Noida.
+
+Sample table: customer
+![image (3)](https://github.com/user-attachments/assets/d80ab2f4-608b-4462-a906-c9bb2b029c45)
+
+For example:
+Result
+
+COUNT
+
+9
+
 
 ```sql
--- Paste your SQL code below for Question 4
+--
+select count(id) as COUNT from customer
+where city !='Noida';
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Screenshot (223)](https://github.com/user-attachments/assets/6f01ae36-7281-4077-a954-a89d661d261c)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Write a SQL query to find the minimum purchase amount.
+
+Sample table: orders
+
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         5001
+
+ 
+
+For example:
+Result
+
+MINIMUM
+
+65.26
+
 
 ```sql
--- Paste your SQL code below for Question 5
+--
+select min(purch_amt) as MINIMUM from orders;
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Screenshot (224)](https://github.com/user-attachments/assets/d67867c8-bcd6-47c2-915b-887ee0666fc7)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Write a SQL query to calculate the total number of working hours of all employees
+
+Sample table: employee1
+
+ ![image (2)](https://github.com/user-attachments/assets/e98c10cb-7fae-459f-a18a-a28e2b442515)
+
+
+For example:
+Result
+
+Total working hours
+
+111
 
 ```sql
--- Paste your SQL code below for Question 6
+--
+select sum(workhour) as 'Total working hours'
+from employee1;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Screenshot (225)](https://github.com/user-attachments/assets/5c38ba9f-1ee1-44ae-9925-542a61f1d38e)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Write a SQL query to calculate total available amount of fruits that has a price greater than 0.5 . Return total Count. 
+
+Note: Inventory attribute contains amount of fruits
+
+Table: fruits
+
+name        type
+
+id          INTEGER
+name        TEXT
+unit        TEXT
+inventory   INTEGER
+price       REAL
+
+ 
+
+For example:
+Result
+
+total_available_amount
+
+160
+
 
 ```sql
--- Paste your SQL code below for Question 7
+--
+select sum(inventory) as 'total_available_amount'
+from fruits
+where price >0.5;
 ```
 
 **Output:**
+![Screenshot (226)](https://github.com/user-attachments/assets/5c375c95-c963-4e33-86c4-e30870152bb3)
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write the SQL query that accomplishes the grouping of data by age intervals using the expression (age/5)5, calculates the minimum age for each group, and excludes groups where the minimum age is not less than 25.
+
+Sample table: customer1
+![unnamed](https://github.com/user-attachments/assets/b3e160bf-4479-4e89-a686-68c6ab45f52b)
+
+
+For example:
+Result
+
+age_group   MIN(age)
+
+20          22
+
 
 ```sql
--- Paste your SQL code below for Question 8
+--
+select (age/5)*5 as age_group,MIN(age) from customer1
+group by age_group
+having min(age) <25;
 ```
 
 **Output:**
 
-![Output8](output.png)
+![Screenshot (227)](https://github.com/user-attachments/assets/39dbf571-4b0a-4603-bc96-de014bf7d6c2)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write the SQL query that accomplishes the grouping of data by age, calculates the maximum income for each age group, and includes only those age groups where the maximum income is greater than 2,000,000.
+
+Sample table: employee
+![unnamed](https://github.com/user-attachments/assets/c8eaccb3-50d3-4c9f-b6e0-9b8c7a353409)
+
+
+For example:
+Result
+
+age         MAX(income)
+
+35          5000000
+
 
 ```sql
--- Paste your SQL code below for Question 9
+--
+select age,MAX(income) from employee
+group by age
+having max(income)>2000000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![Screenshot (228)](https://github.com/user-attachments/assets/1e0c1b1f-4447-44c4-8159-348edecff809)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write SQL query to extract the email domain from each patient's email address and count the number of patients with the same email domain.
+
+Sample table: Patients Table
+![image (3)](https://github.com/user-attachments/assets/379ec86b-fc75-46ba-909f-dfc4833b6003)
+
+
+For example:
+Result
+
+EmailDomain    TotalPatients
+
+example.com    10
+
 
 ```sql
--- Paste your SQL code below for Question 10
+-- select substr(email,instr(email))
 ```
 
 **Output:**
+![Screenshot (220)](https://github.com/user-attachments/assets/c57f7e4b-bb7f-46e8-8567-76de0239b0a8)
 
-![Output10](output.png)
+**SEB-3 GRADE SCREENSHOT**
+![Screenshot 2025-05-05 222957](https://github.com/user-attachments/assets/514f802c-a5ad-4ed2-a677-39861c2a50eb)
+
+
 
 
 ## RESULT
