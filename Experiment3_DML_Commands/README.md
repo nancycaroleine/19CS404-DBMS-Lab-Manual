@@ -214,72 +214,208 @@ quantity
 supplier_id
 
 ```sql
--- Paste your SQL code below for Question 5
+--
+update Products
+set product_name = 'Premium Bread'
+where product_id = 5;
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Screenshot (214)](https://github.com/user-attachments/assets/a0b01e2f-aec4-414d-b877-789a921d2855)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Write a SQL query to Delete customers with following conditions
+
+    'CUST_COUNTRY' is not in a list of specified countries ('UK', 'USA', 'Canada')
+    'GRADE' is greater than or equal to 3
+
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+  
+|CUST_CODE  | CUST_NAME   | CUST_CITY   | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO     | AGENT_CODE |
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+| C00013    | Holmes      | London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
+| C00001    | Micheal     | New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
+| C00020    | Albert      | New York    | New York     | USA          |     3 |     5000.00 |     7000.00 |     6000.00 |       6000.00 | BBBBSBB      | A008       |
+
+For example:
+Test 	Result
+
+select changes();
+
+changes()
+
+2
+
 
 ```sql
--- Paste your SQL code below for Question 6
+--
+delete from customer
+where cust_country not in ('UK','USA','Canada') and grade >=3;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Screenshot (215)](https://github.com/user-attachments/assets/cb3e667b-d6a0-438a-bac1-5c0a3b61ba1f)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Write a SQL query to Delete all Doctors whose Specialization is either 'Pediatrics' or 'Cardiology' and Last Name is Brown.
+
+Sample table: Doctors
+
+attributes : doctor_id, first_name, last_name, specialization
+
+For example:
+Test 	Result
+
+SELECT * FROM doctors;
+
+	
+
+doctor_id   first_name  last_name   specialization
+----------  ----------  ----------  --------------
+1           John        Smith       Cardiology
+
+2           Emily       Johnson     Orthopedics
+
+3           Michael     Brown       Pediatrics
+
+doctor_id   first_name  last_name   specialization
+----------  ----------  ----------  --------------
+1           John        Smith       Cardiology
+
+2           Emily       Johnson     Orthopedics
 
 ```sql
--- Paste your SQL code below for Question 7
+--
+delete from Doctors
+where specialization in ('Pediatrics','Cardiology') and last_name='Brown';
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Screenshot (216)](https://github.com/user-attachments/assets/559ec1df-563b-4a60-bc74-c52c718f52fe)
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write a SQL query to Delete customers from 'customer' table where 'GRADE' is not equal to 3.
+ 
+
+Sample table: Customer
+
+  
+|CUST_CODE  |   CUST_NAME   | CUST_CITY   | WORKING_AREA | CUST_COUNTRY | GRADE |    OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO     | AGENT_CODE |
+
+
+| C00013    |   Holmes      |   London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
+
+
+| C00001    |   Micheal     |   New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
+
+
+| C00020    |   Albert      |   New York    | New York     | USA          |     3 |     5000.00 |     7000.00 |     6000.00 |       6000.00 | BBBBSBB      | A008       |
+
+For example:
+Test 	Result
+
+select distinct(grade)from customer;
+
+	
+
+GRADE
+----------
+2
+3
+1
+0
+GRADE
+----------
+3
+
 
 ```sql
--- Paste your SQL code below for Question 8
+--
+delete from Customer 
+where GRADE !=3;
 ```
 
 **Output:**
-
-![Output8](output.png)
+![Screenshot (217)](https://github.com/user-attachments/assets/fde505b6-34bc-4ef7-85ef-838688e6bde4)
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' has exactly 6 characters.
+
+Sample table: Customer
+ 
+|CUST_CODE  | CUST_NAME   | CUST_CITY   | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO     | AGENT_CODE |
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+| C00013    | Holmes      | London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
+
+| C00001    | Micheal     | New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
+
+| C00020    | Albert      | New York    | New York     | USA          |     3 |     5000.00 |     7000.00 |     6000.00 |       6000.00 | BBBBSBB      | A008       |
+
+For example:
+Test 	Result
+
+select changes();
+
+	
+
+CUST_CODE   CUST_NAME   CUST_CITY   WORKING_AREA  CUST_COUNTRY  GRADE       OPENING_AMT  RECEIVE_AMT  PAYMENT_AMT  OUTSTANDING_AMT  PHONE_NO    AGENT_CODE
+----------  ----------  ----------  ------------  ------------  ----------  -----------  -----------  -----------  ---------------  ----------  ----------
+C00013      Holmes      London      London        UK            2           6000         5000         7000         4000             BBBBBBB     A003
+
+C00020      Albert      New York    New York      USA           3           5000         7000         6000         6000             BBBBSBB    
+C00015      Stuart      London      London        UK            1           6000         8000         3000         11000            GFSGERS     A003
+
+C00012      Steven      San Jose    San Jose      USA           1           5000         7000         9000         3000             KRFYGJK     A012
+
+C00003      Martin      Torento     Torento       Canada        2           8000         7000         7000         8000             MJYURFD     A004
+
+C00009      Ramesh      Mumbai      Mumbai        India         3           8000         7000         3000         12000            Phone No    A002
+changes()
+----------
+6
+
 
 ```sql
--- Paste your SQL code below for Question 9
+--
+delete from Customer
+where length(CUST_NAME) = 6;
 ```
 
 **Output:**
+![Screenshot (218)](https://github.com/user-attachments/assets/d8df3bfd-1721-4be8-a890-2fe3b2f24592)
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write a SQL query to delete a specific doctor from Doctors table whose ID is 1.
+
+Sample table: Doctors
+
+attributes : doctor_id, first_name, last_name, specialization
 
 ```sql
--- Paste your SQL code below for Question 10
+--
+delete from Doctors
+where doctor_id = 1;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![Screenshot (219)](https://github.com/user-attachments/assets/81eaa3b2-f163-4bd0-8ad8-be0ed67ec2f3)
+
+**MODULE 2 - SEB GRAGE SCREENSHOT]**
+
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
