@@ -47,55 +47,171 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+-- Increase the reorder level by 30% for products from 'Food' category having quantity in stock less than 50% of existing reorder level in the products table
+
+name               type
+
+product_id         INT
+product_name       VARCHAR(10)
+category           VARCHAR(50)
+cost_price         DECIMAL(10)
+sell_price         DECIMAL(10)
+reorder_lvl        INT
+quantity              INT
+supplier_id           INT
+
+For example:
+Test 	Result
+
+select changes();
+
+	
+
+changes()
+----------
+4
+
 
 ```sql
--- Paste your SQL code below for Question 1
+--
+update products
+set reorder_lvl = round(reorder_lvl*1.30)
+where category = 'Food' and quantity < (reorder_lvl*0.50);
 ```
 
 **Output:**
 
-![Output1](output.png)
+![Screenshot (210)](https://github.com/user-attachments/assets/a1cb12c0-42ad-4635-85a4-da32956e608e)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Write a SQL statement to Change the category to 'Household' where product name contains 'Detergent' in the products table.
+
+Products Table 
+
+name          type       
+ 
+product_id     INT PRIMARY KEY        
+product_name   VARCHAR(10) 
+category       VARCHAR(50) 
+cost_price     DECIMAL(10) 
+sell_price     DECIMAL(10) 
+reorder_lvl    INT        
+quantity       INT        
+supplier_id    INT           
+
+For example:
+Test 	Result
+
+select changes();
+
+changes()
+
+ 4
+
 
 ```sql
--- Paste your SQL code below for Question 2
+--
+update Products
+set category ='Household'
+where product_name like '%Detergent%';
 ```
 
 **Output:**
+![Screenshot (211)](https://github.com/user-attachments/assets/6629c153-dc58-4c81-ad0d-e2ac98021fad)
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- Write a SQL statement to Increase the selling price by 15% in the products table where quantity in stock is less than 50 and supplier ID is 10.
+
+Products Table 
+
+name          type       
+ 
+product_id     INT PRIMARY KEY        
+product_name   VARCHAR(10) 
+category       VARCHAR(50) 
+cost_price     DECIMAL(10) 
+sell_price     DECIMAL(10) 
+reorder_lv     INT        
+quantity       INT        
+supplier_id    INT           
+
+For example:
+Test 	Result
+
+select changes();
+
+changes()
+
+4
+
 
 ```sql
--- Paste your SQL code below for Question 3
+--
+update products
+set sell_price = sell_price*1.15
+where quantity < 50 and supplier_id = 10;
 ```
 
 **Output:**
+![Screenshot (212)](https://github.com/user-attachments/assets/be220d31-cc58-4c51-8f33-3fcb94b29f1b)
 
-![Output3](output.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- 
+ Update the total selling price to quantity sold multiplied by updated selling price per unit where product id is 10 in the sales table.
+
+SALES TABLE
+
+name               type
+
+sale_id            INT
+sale_date          DATE
+product_id         INT
+quantity           INT
+sell_price         DECIMAL(10,2)
+total_sell_price   DECIMAL(10,2)
+
+For example:
+Test 	Result
+
+select changes();
+
+changes()
+
+3
 
 ```sql
--- Paste your SQL code below for Question 4
+--
+update SALES
+set total_sell_price = quantity*sell_price
+where product_id = 10;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Screenshot (213)](https://github.com/user-attachments/assets/f1299129-5563-4c87-8d37-b0897bafc59b)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Write a SQL statement to Update the product_name to 'Premium Bread' whose product ID is 5 in the products table.
+
+Products table
+
+---------------
+product_id
+product_name
+category
+cost_price
+sell_price
+reorder_lvl
+quantity
+supplier_id
 
 ```sql
 -- Paste your SQL code below for Question 5
