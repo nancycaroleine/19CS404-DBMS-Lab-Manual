@@ -404,7 +404,8 @@ ID          NAME        AGE         ADDRESS     SALARY
 ![Screenshot (239)](https://github.com/user-attachments/assets/a92df883-d499-45b3-9526-5e9f5f01d0ab)
 
 **SEB 4 GRADE SCREENSHOT**
-![Screenshot 2025-05-05 230751](https://github.com/user-attachments/assets/f424991b-c12f-43ed-b260-43f409fb22cd)
+![Screenshot (251)](https://github.com/user-attachments/assets/ecf5a667-f46b-4646-8990-88f2550fd5de)
+
 
 
 
